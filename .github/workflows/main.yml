@@ -37,22 +37,3 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         path: ${{ env.packagePath }}
-        
-  Deploy:
-    runs-on: windows-latest
-    environment: trdeve5
-    steps:
-      # Login to tenant using action-cli-login
-    - name: Office 365 CLI Login
-      uses: pnp/action-cli-login@v1.0.0
-      with:
-        ADMIN_USERNAME:  '${{ secrets.ADMINUSERNAME }}'
-        ADMIN_PASSWORD:  '${{ secrets.ADMINPASSWORD }}'
-    
-    # Deploy package to tenant using action-cli-deploy
-    - name: Office 365 CLI Deploy
-      uses: pnp/action-cli-deploy@v1.0.0
-      with:
-        APP_FILE_PATH: sharepoint/solution/${{ env.packagePath }}
-        # SKIP_FEATURE_DEPLOYMENT: true
-        # OVERWRITE: true 
