@@ -11,6 +11,7 @@ env:
 jobs:
   build:
     runs-on: windows-latest
+    environment: trdeve5
     
     steps:
 
@@ -37,3 +38,12 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         path: ${{ env.packagePath }}
+        
+    # Option 2 - Deploy app to a site collection
+    - name: Option 2 - Deploy app to a site collection
+      uses: action-pnp-powershell-deploy@v1.0.0
+      with:
+        SHAREPOINT_SITE_URL: ${{ secrets.SITECOLLECTION }}
+        ADMIN_USERNAME: ${{ secrets.ADMINUSERNAME }}
+        ADMIN_PASSWORD: ${{ secrets.ADMINPASSWORD }}
+        APP_FILE_PATH: ${{ env.packagePath }}      
