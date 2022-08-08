@@ -41,7 +41,7 @@ jobs:
         
     # Option 2 - Deploy app to a site collection
     - name: Option 2 - Deploy app to a site collection
-      uses: rohith/action-pnp-powershell-deploy@v1.0.0
+      uses: test1/action-pnp-powershell-deploy@v1.0.0
       with:
         SHAREPOINT_SITE_URL: ${{ secrets.SITECOLLECTION }}
         ADMIN_USERNAME: ${{ secrets.ADMINUSERNAME }}
