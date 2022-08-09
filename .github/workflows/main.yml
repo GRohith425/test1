@@ -1,0 +1,40 @@
+name: SPFx CI CD
+
+on:
+  push:
+    branches:
+      - main
+
+env:
+  packagePath: sharepoint/solution/testmap.sppkg
+
+jobs:
+  build:
+    runs-on: windows-latest
+    environment: trdeve5
+    
+    steps:
+
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Setup Node.js environment
+      uses: actions/setup-node@v1
+      with:
+        node-version: 14.x
+
+    - name: Install dependencies
+      run: npm ci
+    
+    - name: Build solution
+      run: gulp build
+              
+    - name: Bundle and package
+      run: |
+        gulp bundle --ship
+        gulp package-solution --ship
+        
+    - name: Upload Build Package
+      uses: actions/upload-artifact@v2
+      with:
+        path: ${{ env.packagePath }}
