@@ -48,7 +48,7 @@ jobs:
     
     # Deploy package to tenant using action-cli-deploy
     - name: Office 365 CLI Deploy
-      uses: pnp/action-cli-deploy@vv2.1.0
+      uses: pnp/action-cli-deploy@v2.1.0
       with:
         APP_FILE_PATH: sharepoint/solution/${{ env.packagePath }}
         # SKIP_FEATURE_DEPLOYMENT: true
