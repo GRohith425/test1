@@ -41,14 +41,14 @@ jobs:
         
         # Login to tenant using action-cli-login
     - name: Office 365 CLI Login
-      uses: pnp/action-cli-login@v1.0.0
+      uses: pnp/action-cli-login@v2.1.0
       with:
         ADMIN_USERNAME:  ${{ secrets.ADMINUSERNAME }}
         ADMIN_PASSWORD:  ${{ secrets.ADMINPASSWORD }}
     
     # Deploy package to tenant using action-cli-deploy
     - name: Office 365 CLI Deploy
-      uses: pnp/action-cli-deploy@v1.0.0
+      uses: pnp/action-cli-deploy@vv2.1.0
       with:
         APP_FILE_PATH: sharepoint/solution/${{ env.packagePath }}
         # SKIP_FEATURE_DEPLOYMENT: true
@@ -56,7 +56,7 @@ jobs:
     
     # Send an email using action-cli-runscript
     - name: Office 365 CLI Send email
-      uses: pnp/action-cli-runscript@v1.0.0
+      uses: pnp/action-cli-runscript@v2.1.0
       with:
          O365_CLI_SCRIPT: o365 spo mail send --webUrl ${{ secrets.SITECOLLECTION }} --to '${{ secrets.ADMINUSERNAME }}' --subject 'Deployment done' --body '<h2>Office 365 CLI</h2> <p>The deployment is complete.</p> <br/> Email sent via Office 365 CLI GitHub Action.'
       if: env.SEND_MAIL == 'true'
