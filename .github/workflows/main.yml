@@ -8,8 +8,8 @@ on:
       - main
 
 env:
-  packagePath: sharepoint/solution/testmap.sppkg
-  packagePath1: src/index.ts
+  packagePath: sharepoint/solution
+  packagePath1: index.ts
 
 jobs:
   build:
@@ -40,7 +40,7 @@ jobs:
     - name: Upload Build Package
       uses: actions/upload-artifact@v2
       with:
-        path: 
-         -${{ env.packagePath }}
-         -${{ env.packagePath1 }}
+        path: |
+         ${{ env.packagePath }}
+         ${{ env.packagePath1 }}
         
