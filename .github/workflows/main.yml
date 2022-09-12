@@ -8,8 +8,8 @@ on:
       - main
 
 env:
-  packagePath: sharepoint/solution
-  packagePath1: index.ts
+  packagePath: sharepoint/solution/testmap.sppkg
+  packagePath1: Laserfiche Apps Deployment Steps.docx
 
 jobs:
   build:
