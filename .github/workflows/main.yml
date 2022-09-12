@@ -40,7 +40,7 @@ jobs:
     - name: Upload Build Package
       uses: actions/upload-artifact@v2
       with:
-        path: |
-         artifact1: ${{ env.packagePath }}
-         artifact2: ${{ env.packagePath1 }}
+        path: 
+         -${{ env.packagePath }}
+         -${{ env.packagePath1 }}
         
