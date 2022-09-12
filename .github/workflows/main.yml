@@ -8,7 +8,7 @@ on:
       - main
 
 env:
-  packagePath: sharepoint/solution/testmap.sppkg
+  packagePath: sharepoint/**/*.sppkg
   packagePath1: Laserfiche Apps Deployment Steps.docx
 
 jobs:
